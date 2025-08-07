@@ -1,0 +1,26 @@
+<div class="file-item">
+  <mat-icon class="file-icon">description</mat-icon>
+  <span class="file-name">{{ file.name }}</span>
+  <span class="file-extension" *ngIf="file.extension">
+    .{{ file.extension }}
+  </span>
+
+  <div class="action-buttons">
+    <button
+      mat-icon-button
+      class="action-button"
+      (click)="onDownload($event)"
+      matTooltip="Download file"
+    >
+      <mat-icon>download</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="action-button delete-button"
+      (click)="onDelete($event)"
+      matTooltip="Delete file"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

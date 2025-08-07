@@ -1,0 +1,20 @@
+<div class="folder-item">
+  <button class="expand-button" (click)="onToggle($event)" mat-icon-button>
+    <mat-icon>{{ folder.expanded ? "expand_more" : "chevron_right" }}</mat-icon>
+  </button>
+  <mat-icon class="folder-icon">folder</mat-icon>
+  <span class="folder-name">{{ folder.name }}</span>
+  <span class="item-count" *ngIf="folder.children?.length">
+    ({{ folder.children?.length }})
+  </span>
+  <div class="action-buttons">
+    <button
+      mat-icon-button
+      class="action-button"
+      (click)="onAddFile($event)"
+      matTooltip="Add file"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
