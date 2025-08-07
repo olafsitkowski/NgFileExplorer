@@ -3,5 +3,9 @@
 </div>
 
 <div class="file-explorer-container">
-  <app-file-tree [treeData]="treeNodes()" [level]="0"></app-file-tree>
+  <app-file-tree
+    [treeData]="treeNodes()"
+    [level]="0"
+    (folderToggle)="toggleFolder($event)"
+  ></app-file-tree>
 </div>

@@ -20,9 +20,9 @@ import { FileItem, TreeNode } from '../../models/file.model';
 export class FileExplorerComponent {
   private readonly store = inject(Store);
   private readonly folders = this.store.selectSignal(selectStructure);
+  private readonly expandedStates = signal<Map<string, boolean>>(new Map());
   public user = this.store.selectSignal(selectCurrentUser);
 
-  private readonly expandedStates = signal<Map<string, boolean>>(new Map());
   public treeNodes = computed(() => {
     const folders = this.folders();
     const user = this.user();
@@ -36,6 +36,13 @@ export class FileExplorerComponent {
 
     return filteredNodes;
   });
+
+  public toggleFolder(folderId: string): void {
+    const currentStates = this.expandedStates();
+    const newStates = new Map(currentStates);
+    newStates.set(folderId, !currentStates.get(folderId));
+    this.expandedStates.set(newStates);
+  }
 
   private filterFolderForUser(folder: Folder, user: User): Folder | null {
     const isVisible =

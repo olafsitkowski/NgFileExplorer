@@ -34,7 +34,11 @@
       *ngIf="!node.isFile && node.expanded && node.children?.length"
       class="children"
     >
-      <app-file-tree [treeData]="node.children || []" [level]="level + 1">
+      <app-file-tree
+        [treeData]="node.children || []"
+        [level]="level + 1"
+        (folderToggle)="folderToggle.emit($event)"
+      >
       </app-file-tree>
     </div>
   </div>

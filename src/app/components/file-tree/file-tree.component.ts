@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,6 +27,7 @@ import { AppState } from '../../models/app-state.model';
 export class FileTreeComponent {
   @Input() public treeData: TreeNode[] = [];
   @Input() public level = 0;
+  @Output() public folderToggle = new EventEmitter<string>();
 
   constructor(
     private readonly fileService: FileService,
@@ -35,7 +36,7 @@ export class FileTreeComponent {
 
   public toggleFolder(node: TreeNode): void {
     if (!node.isFile) {
-      node.expanded = !node.expanded;
+      this.folderToggle.emit(node.id);
     }
   }
 
