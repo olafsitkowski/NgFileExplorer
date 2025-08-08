@@ -1,5 +1,7 @@
 # NgFileExplorer
 
+🚀 **Live demo**: [https://olafsitkowski.github.io/NgFileExplorer/](https://olafsitkowski.github.io/NgFileExplorer/)
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
 
 ## Development server
