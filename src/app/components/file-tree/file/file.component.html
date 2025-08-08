@@ -1,9 +1,9 @@
 <div class="file-item">
   <mat-icon class="file-icon">description</mat-icon>
   <span class="file-name">{{ file.name }}</span>
-  <span class="file-extension" *ngIf="file.extension">
-    .{{ file.extension }}
-  </span>
+  @if (file.extension) {
+  <span class="file-extension"> .{{ file.extension }} </span>
+  }
 
   <div class="action-buttons">
     <button
