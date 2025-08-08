@@ -1,0 +1,11 @@
+<div class="app-header">
+  <app-user-panel *ngIf="user()" [user]="user()!"></app-user-panel>
+</div>
+
+<div class="file-explorer-container">
+  <app-file-tree
+    [treeData]="treeNodes()"
+    [level]="0"
+    (folderToggle)="toggleFolder($event)"
+  ></app-file-tree>
+</div>

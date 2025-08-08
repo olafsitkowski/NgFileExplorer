@@ -1,0 +1,45 @@
+<div class="file-tree">
+  <div *ngFor="let node of treeData; trackBy: trackByFn" class="tree-item">
+    <div
+      class="item-content"
+      [style.padding-left.px]="level * 40"
+      (click)="!node.isFile && toggleFolder(node)"
+      (keydown.enter)="!node.isFile && toggleFolder(node)"
+      (keydown.space)="!node.isFile && toggleFolder(node)"
+      [style.cursor]="!node.isFile ? 'pointer' : 'default'"
+      [tabindex]="!node.isFile ? 0 : -1"
+      [attr.role]="!node.isFile ? 'button' : null"
+      [attr.aria-expanded]="!node.isFile ? node.expanded : null"
+    >
+      <app-folder-item
+        *ngIf="!node.isFile"
+        [folder]="node"
+        [level]="level"
+        (toggle)="toggleFolder($event)"
+        (addFile)="onAddFile($event)"
+      >
+      </app-folder-item>
+
+      <app-file
+        *ngIf="node.isFile"
+        [file]="node"
+        [level]="level"
+        (download)="onDownloadFile($event)"
+        (delete)="onDeleteFile($event)"
+      >
+      </app-file>
+    </div>
+
+    <div
+      *ngIf="!node.isFile && node.expanded && node.children?.length"
+      class="children"
+    >
+      <app-file-tree
+        [treeData]="node.children || []"
+        [level]="level + 1"
+        (folderToggle)="folderToggle.emit($event)"
+      >
+      </app-file-tree>
+    </div>
+  </div>
+</div>

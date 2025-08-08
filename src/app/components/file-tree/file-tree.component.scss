@@ -1,0 +1,28 @@
+.file-tree {
+  .tree-item {
+    margin: 2px 0;
+
+    .item-content {
+      display: flex;
+      align-items: center;
+      padding: 4px 8px;
+      position: relative;
+      width: 100%;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      app-folder-item,
+      app-file {
+        display: flex;
+        width: 100%;
+      }
+    }
+
+    .children {
+      margin-left: 0;
+    }
+  }
+}
