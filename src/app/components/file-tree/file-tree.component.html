@@ -1,5 +1,6 @@
 <div class="file-tree">
-  <div *ngFor="let node of treeData; trackBy: trackByFn" class="tree-item">
+  @for (node of treeData; track trackByFn($index, node)) {
+  <div class="tree-item">
     <div
       class="item-content"
       [style.padding-left.px]="level * 40"
@@ -11,29 +12,27 @@
       [attr.role]="!node.isFile ? 'button' : null"
       [attr.aria-expanded]="!node.isFile ? node.expanded : null"
     >
+      @if (!node.isFile) {
       <app-folder-item
-        *ngIf="!node.isFile"
         [folder]="node"
         [level]="level"
         (toggle)="toggleFolder($event)"
         (addFile)="onAddFile($event)"
       >
       </app-folder-item>
-
+      } @if (node.isFile) {
       <app-file
-        *ngIf="node.isFile"
         [file]="node"
         [level]="level"
         (download)="onDownloadFile($event)"
         (delete)="onDeleteFile($event)"
       >
       </app-file>
+      }
     </div>
 
-    <div
-      *ngIf="!node.isFile && node.expanded && node.children?.length"
-      class="children"
-    >
+    @if (!node.isFile && node.expanded && node.children?.length) {
+    <div class="children">
       <app-file-tree
         [treeData]="node.children || []"
         [level]="level + 1"
@@ -41,5 +40,7 @@
       >
       </app-file-tree>
     </div>
+    }
   </div>
+  }
 </div>

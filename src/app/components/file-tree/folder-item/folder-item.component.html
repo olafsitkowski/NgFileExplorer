@@ -4,9 +4,9 @@
   </button>
   <mat-icon class="folder-icon">folder</mat-icon>
   <span class="folder-name">{{ folder.name }}</span>
-  <span class="item-count" *ngIf="folder.children?.length">
-    ({{ folder.children?.length }})
-  </span>
+  @if (folder.children?.length) {
+  <span class="item-count"> ({{ folder.children?.length }}) </span>
+  }
   <div class="action-buttons">
     <button
       mat-icon-button
