@@ -2,7 +2,27 @@
 
 🚀 **Live demo**: [https://olafsitkowski.github.io/NgFileExplorer/](https://olafsitkowski.github.io/NgFileExplorer/)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+## 📌 About the Project
+
+NgFileExplorer is a **file and folder explorer** built with **Angular 19** using modern features like **Standalone Components**, **Signals**, **NgRx Store** for state management, and **Angular Material** for the UI.  
+The app allows you to navigate a nested folder structure, add/remove/download files, and display them based on **user role permissions** (Admin, User1, User2).  
+The entire application works **client-side only** — no backend required.
+
+### ✨ Key Features
+- Recursive folder & file structure
+- Role-based permissions for file actions
+- Add, delete, and download files
+- Collapse/expand folders
+- Random user role assigned on page load
+
+### 🛠 Technologies Used
+- **Angular 19** – Standalone Components, modern architecture
+- **NgRx Store** – state management for folders, files, and users
+- **Angular Signals** – local UI state (e.g. folder collapse)
+- **Angular Material** – icons, dialogs, buttons, layout
+- **TypeScript** – strong typing for models and state
+
+---
 
 ## Development server
 
