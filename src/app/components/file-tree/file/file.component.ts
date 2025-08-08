@@ -29,6 +29,8 @@ export class FileComponent {
   }
 
   public getFullFileName(): string {
-    return this.file.extension ? `${this.file.name}.${this.file.extension}` : this.file.name;
+    return this.file.extension
+      ? `${this.file.name}.${this.file.extension}`
+      : this.file.name;
   }
 }

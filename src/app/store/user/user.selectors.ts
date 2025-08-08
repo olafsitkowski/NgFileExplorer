@@ -6,5 +6,5 @@ export const selectUserState = (state: AppState) => state.user;
 
 export const selectCurrentUser = createSelector(
   selectUserState,
-  (state: UserState) => state.currentUser
+  (state: UserState | undefined) => state?.currentUser || null
 );
